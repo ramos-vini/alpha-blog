@@ -1,0 +1,25 @@
+<h1>Edit Article <%= @article.id %></h1>
+<% if @article.errors.any? %>
+    <h3>Article could not be created:</h3>
+    <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>    
+    </ul>
+<% end %>
+
+<%= form_with(model: @article, local: true) do |f|%>
+<div>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %>
+</div>
+<br>
+<div>
+    <%= f.label :description %> <br>
+    <%= f.text_field :description %>
+</div>
+<br>
+<div>
+    <%= f.submit %>
+</div>
+<% end %>
