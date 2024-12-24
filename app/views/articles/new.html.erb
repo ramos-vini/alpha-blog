@@ -8,21 +8,7 @@
     </ul>
 <% end %>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f|%>
-<div>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-</div>
-<br>
-<div>
-    <%= f.label :description %> <br>
-    <%= f.text_field :description %>
-</div>
-<br>
-<div>
-    <%= f.submit %>
-</div>
-<% end %>
+<%= render 'form' %>
 
 <br>
 <%= link_to 'Return', articles_path%>
