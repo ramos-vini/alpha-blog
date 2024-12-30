@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :article
 
+  has_secure_password
+
   validates :username, 
             presence: true,
             length: {minimum: 3, maximum: 20},
@@ -13,6 +15,5 @@ class User < ApplicationRecord
             length: {maximum: 100}, 
             email: true, 
             uniqueness: true
-
-  has_secure_password
+  
 end
