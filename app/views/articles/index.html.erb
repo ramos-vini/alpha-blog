@@ -17,7 +17,8 @@
         <td><%= article.user.username %></td>
         <td><%= button_to 'Show', article_path(article), method: :get %></td>
         <td><%= button_to 'Edit', edit_article_path(article), method: :get %></td>
-        <td><%= button_to 'Delete', article_path(article), method: :delete %></td>
+        <td><%= button_to 'Delete', article_path(article), method: :delete, 
+                data: { turbo_confirm: "Are you sure you want to delete this article?" } %></td>
         </tr>
         <% end %>
     </tbody>
