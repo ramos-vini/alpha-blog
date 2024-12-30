@@ -13,4 +13,6 @@ class User < ApplicationRecord
             length: {maximum: 100}, 
             email: true, 
             uniqueness: true
+
+  has_secure_password
 end
