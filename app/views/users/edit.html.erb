@@ -1,0 +1,15 @@
+<h1>Edit your Profile</h1>
+
+<% if @user.errors.any? %>
+    <h3>User could not be created:</h3>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>    
+    </ul>
+<% end %>
+
+<%= render 'form'%>
+
+<br><br>
+<%= link_to 'Return', '/'%>
