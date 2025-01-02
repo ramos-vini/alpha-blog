@@ -1,0 +1,11 @@
+<h1><%= @user.username %>'s Profile</h1>
+
+<img src="https://cdn-icons-png.flaticon.com/512/6596/6596121.png" alt="" width="200" >
+
+<h2>Articles:</h2>
+
+<%= render 'articles/articles_table' %>
+
+<br>
+
+<%= link_to 'Return', '/'%>
