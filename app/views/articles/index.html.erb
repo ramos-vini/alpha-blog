@@ -3,6 +3,10 @@
 <%= render 'articles_table' %>
 
 <br>
+<%= will_paginate @articles %>
+<br>
+
+<br>
 <%= link_to 'Create new article', new_article_path%>
 <br><br>
 <%= link_to 'Return', '/'%>
