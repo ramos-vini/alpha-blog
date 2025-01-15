@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Articles</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+        <td><%= user.username %></td>
+        <td><%= user.article.count %></td>
+        <td><%= button_to 'View Profile', user_path(user), method: :get %></td>
+        <td><%= button_to 'Edit Profile', edit_user_path(user), method: :get %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
