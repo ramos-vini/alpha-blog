@@ -1,0 +1,24 @@
+<h1>Login</h1>
+
+<%= form_with(scope: :session, url: login_path, local: true) do |f|%>
+    <div>
+        <strong><%= f.label :email %>:</strong>
+        <br>
+        <%= f.email_field :email %>
+    </div>
+    <br>
+
+    <div>
+        <strong><%= f.label :password %>:</strong>
+        <br>
+        <%= f.password_field :password %>
+    </div>
+    <br>
+
+    <div>
+        <%= f.submit("Log in") %>
+    </div>
+<% end %>
+
+<br><br>
+<%= link_to 'Return', '/'%>
