@@ -6,7 +6,10 @@
 <%= will_paginate @articles %>
 <br>
 
-<br>
-<%= link_to 'Create new article', new_article_path%>
+<% if logged_in? %>
+    <br>
+    <%= link_to 'Create new article', new_article_path %>
+<% end %>
+
 <br><br>
 <%= link_to 'Return', '/'%>

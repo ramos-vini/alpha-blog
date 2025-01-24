@@ -12,7 +12,9 @@
         <td><%= user.username %></td>
         <td><%= user.article.count %></td>
         <td><%= button_to 'View Profile', user_path(user), method: :get %></td>
-        <td><%= button_to 'Edit Profile', edit_user_path(user), method: :get %></td>
+        <% if logged_in? && current_user.id == user.id %>
+            <td><%= button_to 'Edit Profile', edit_user_path(user), method: :get %></td>
+        <% end %>
         </tr>
         <% end %>
     </tbody>
