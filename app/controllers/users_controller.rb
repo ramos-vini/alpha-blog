@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     @user = User.create(set_user_params)
     if @user.save
       flash[:notice] = "User was created successfully."
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
