@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:create, :edit, :update, :destroy]
 
   def show
   end
@@ -53,6 +55,13 @@ class ArticlesController < ApplicationController
 
   def set_article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def require_same_user
+    if current_user != Article.find(params[:id]).user
+      flash[:alert] = "You don't have sufficient permissions to perform this action."
+      redirect_to articles_path
+    end
   end
 
 end

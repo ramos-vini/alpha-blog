@@ -4,9 +4,10 @@
 
 <br>
 
-<%= link_to 'Edit Profile', edit_user_path%>
-
-<br>
+<% if logged_in? && current_user.id == @user.id%>
+    <%= link_to 'Edit Profile', edit_user_path%>
+    <br>
+<% end %>
 
 <h2>Articles:</h2>
 
@@ -18,4 +19,4 @@
 
 <br>
 
-<%= link_to 'Return', '/'%>
+<%= link_to 'Return', users_path %>

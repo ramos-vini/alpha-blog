@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_user, only: [:create, :edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @users = User.paginate(:page => params[:page], per_page: 5)
@@ -45,4 +47,12 @@ class UsersController < ApplicationController
   def set_user_params
     params.require(:user).permit(:username, :email, :password)
   end
+
+  def require_same_user
+    if current_user != User.find(params[:id])
+      flash[:alert] = "You don't have sufficient permissions to perform this action."
+      redirect_to users_path
+    end
+  end
+
 end
