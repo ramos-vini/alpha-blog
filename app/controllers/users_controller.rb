@@ -39,8 +39,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if @user == current_user
+      logout
+    end
     @user.destroy
-    logout
     flash[:notice] = "User was successfully deleted."
     redirect_to root_path
   end
@@ -56,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != User.find(params[:id])
+    if current_user != User.find(params[:id]) && !current_user.admin?
       flash[:alert] = "You don't have sufficient permissions to perform this action."
       redirect_to users_path
     end

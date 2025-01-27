@@ -12,8 +12,11 @@
         <td><%= user.username %></td>
         <td><%= user.article.count %></td>
         <td><%= button_to 'View Profile', user_path(user), method: :get %></td>
-        <% if logged_in? && current_user.id == user.id %>
+        <% if logged_in? && (current_user.id == user.id || current_user.admin?) %>
             <td><%= button_to 'Edit Profile', edit_user_path(user), method: :get %></td>
+        <% end %>
+        <% if logged_in? && current_user.admin? %>
+            <td><%= button_to 'Delete Profile', user_path(user), method: :delete %></td>
         <% end %>
         </tr>
         <% end %>

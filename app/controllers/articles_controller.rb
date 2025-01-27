@@ -58,7 +58,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != Article.find(params[:id]).user
+    if current_user != Article.find(params[:id]).user && !current_user.admin?
       flash[:alert] = "You don't have sufficient permissions to perform this action."
       redirect_to articles_path
     end

@@ -4,7 +4,11 @@
 <ul>
     <% if logged_in?%>
         <li>
-            <%= link_to "Your Profile (#{current_user.username})", user_path(current_user.id) %>
+            <%= link_to "#{
+                if current_user.admin? 
+                '[Admin]'
+                end
+                } Your Profile (#{current_user.username})", user_path(current_user.id) %>
             <%= button_to 'Logout', login_path, method: :delete %>
         </li>
     <% else %>    

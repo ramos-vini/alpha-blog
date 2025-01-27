@@ -4,7 +4,7 @@
 
 <br>
 
-<% if logged_in? && current_user.id == @user.id%>
+<% if logged_in? && (current_user.id == @user.id || current_user.admin?)%>
     <%= link_to 'Edit Profile', edit_user_path%>
     <br>
     <%= button_to 'Delete Profile', user_path(@user), method: :delete, 
