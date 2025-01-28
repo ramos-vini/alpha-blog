@@ -1,0 +1,26 @@
+<h1>Create New Category</h1>
+
+<% if @category.errors.any? %>
+    <h3>Category could not be created:</h3>
+    <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>    
+    </ul>
+<% end %>
+
+<%= form_with(model: @category, local: true) do |f|%>
+<div>
+    <strong><%= f.label :name %>:</strong>
+    <br>
+    <%= f.text_field :name %>
+</div>
+<br>
+
+<div>
+    <%= f.submit %>
+</div>
+<% end %>
+
+<br>
+<%= link_to 'Return', categories_path%>
