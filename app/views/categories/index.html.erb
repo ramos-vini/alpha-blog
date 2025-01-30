@@ -1,0 +1,15 @@
+<h1>Categories</h1>
+
+<%= render 'categories_table' %>
+
+<br>
+<%= will_paginate @categories %>
+<br>
+
+<% if logged_in? %>
+    <br>
+    <%= link_to 'Create new category', new_category_path %>
+<% end %>
+
+<br><br>
+<%= link_to 'Return', '/'%>

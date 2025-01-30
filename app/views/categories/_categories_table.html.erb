@@ -1,0 +1,16 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+            <td><%= category.name %></td>
+            <td><%= button_to 'Show', category_path(category), method: :get %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
