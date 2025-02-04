@@ -2,4 +2,13 @@
 
 <p><strong>Name: </strong><%=@category.name%></p>
 
+<h2>Articles:</h2>
+
+<%= render 'articles/articles_table' %>
+
+<br>
+<%= will_paginate @articles %>
+<br>
+
+<br>
 <%= link_to 'Return', categories_path%>
