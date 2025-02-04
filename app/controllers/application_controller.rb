@@ -19,6 +19,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "You don't have sufficient permissions to perform this action."
+      redirect_to root_path
+    end
+  end
+
   def logout
     session[:user_id] = nil
   end
