@@ -12,6 +12,9 @@
             <td><%= category.name %></td>
             <td><%= category.articles.count %></td>
             <td><%= button_to 'Show', category_path(category), method: :get %></td>
+            <% if logged_in? && current_user.admin? %>
+                <td><%= button_to 'Edit', edit_category_path(category), method: :get %></td>
+            <% end %>
         <% end %>
     </tbody>
 </table>

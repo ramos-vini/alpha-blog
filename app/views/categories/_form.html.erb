@@ -1,0 +1,12 @@
+<%= form_with(model: @category, local: true) do |f|%>
+<div>
+    <strong><%= f.label :name %>:</strong>
+    <br>
+    <%= f.text_field :name %>
+</div>
+<br>
+
+<div>
+    <%= f.submit %>
+</div>
+<% end %>
